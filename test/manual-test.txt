@@ -1,0 +1,23 @@
+Create market item (1 ETH):
+balance of seller should be reduced by listing price (and some transaction fees)
+balance of market contract should be increased by listing price
+
+Change listing price (increase it);
+(Earlier: 0.025 ETH, Now: 0.4 ETH)
+
+Buy item:
+balance of owner should be increased by listing price
+balance of market contract should be zero
+balance of seller should be increased by price of item
+balance of buyer should be decreased by price of item (and some transaction fees)
+
+------------
+Again, reset everything, and:
+
+Create market item (1 ETH):
+balance of seller should be reduced by listing price (and some transaction fees)
+balance of market contract should be increased by listing price
+
+De-list item:
+balance of seller should be increased by the listing price
+balance of market contract should be zero
