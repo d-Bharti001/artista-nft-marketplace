@@ -21375,6 +21375,12 @@
     "version": "0.8.8+commit.dddeac2f.Emscripten.clang"
   },
   "networks": {
+    "42": {
+      "events": {},
+      "links": {},
+      "address": "0x466395409C510013f4A0Bc663a57026cc279988F",
+      "transactionHash": "0xe8c4dd8499c9cb12fee3a73ee4ddcb037dfb6ebfa7bc55b542bcd651317c2d1e"
+    },
     "5777": {
       "events": {
         "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925": {
@@ -21478,7 +21484,7 @@
     }
   },
   "schemaVersion": "3.4.1",
-  "updatedAt": "2022-04-28T17:44:28.257Z",
+  "updatedAt": "2022-04-29T08:26:52.838Z",
   "networkType": "ethereum",
   "devdoc": {
     "details": "Based on ERC721 Stores the token IDs and URIs for those tokens",
