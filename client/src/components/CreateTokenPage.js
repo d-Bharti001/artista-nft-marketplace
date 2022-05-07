@@ -206,7 +206,7 @@ function CreateTokenPage() {
               variant={uploadedToIpfs ? 'success' : 'primary'}
               disabled={loading || uploadedToIpfs || imageError}
             >
-              {loading ? 'Uploading' : uploadedToIpfs ? 'Uploaded' : 'Upload your file'}
+              {uploadedToIpfs ? 'Uploaded' : loading ? 'Please wait' : 'Upload your file'}
             </Button>
 
           </div>
@@ -218,7 +218,7 @@ function CreateTokenPage() {
               onClick={handleMintToken}
               disabled={!uploadedToIpfs || loading || txSuccess || imageError}
             >
-              {loading ? 'Please wait' : txSuccess ? 'Minted' : 'Mint token'}
+              {txSuccess ? 'Minted' : loading ? 'Please wait' : 'Mint token'}
             </Button>
           </div>
         </div> :
