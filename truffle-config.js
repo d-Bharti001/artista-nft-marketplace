@@ -34,6 +34,16 @@ module.exports = {
         })
       ),
       network_id: 42
+    },
+    goerli: {
+      provider: () => (
+        new HDWalletProvider({
+          providerOrUrl: `https://goerli.infura.io/v3/${process.env.PROJECT_ID}`,
+          mnemonic: process.env.MNEMONIC,
+          addressIndex: 0
+        })
+      ),
+      network_id: 5
     }
   },
   compilers: {

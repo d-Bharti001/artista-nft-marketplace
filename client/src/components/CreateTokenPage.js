@@ -1,12 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react'
 import * as nsfwjs from 'nsfwjs'
-import { create as createIpfsClient } from 'ipfs-http-client'
+import { Web3Storage } from 'web3.storage/dist/bundle.esm.min.js'
 import { Button, Card, Container, Form } from 'react-bootstrap'
 import { useBlockchain } from '../contexts/BlockchainContext'
 import WalletConnect from './WalletConnect'
 import { createRandomId } from '../utils'
+require('dotenv').config({ path: '../../.env.local' })
 
-const ipfsClient = createIpfsClient('https://ipfs.infura.io:5001/api/v0')
+const storageClient = new Web3Storage({ token: process.env.REACT_APP_WEB3_STORAGE_TOKEN })
 
 function CreateTokenPage() {
 
@@ -87,8 +88,9 @@ function CreateTokenPage() {
     setMsg({ text: 'Please wait while the file is being uploaded to IPFS...', type: 'secondary' })
     if (!imageUploadUrl.current) {
       try {
-        let imageUploaded = await ipfsClient.add(imageFile.current.files[0])
-        imageUploadUrl.current = `https://ipfs.infura.io/ipfs/${imageUploaded.path}`
+        let file = imageFile.current.files[0]
+        let imageCid = await storageClient.put([file], { wrapWithDirectory: false })
+        imageUploadUrl.current = `https://ipfs.io/ipfs/${imageCid}`
         console.log('Image uploaded:', imageUploadUrl.current)
       } catch (err) {
         console.error(err.message)
@@ -97,14 +99,17 @@ function CreateTokenPage() {
         return
       }
     }
-    let metadata = JSON.stringify({
-      name: tokenName.current.value,
-      description: tokenDesc.current.value,
-      image: imageUploadUrl.current,
-    })
     try {
-      let metadataUploaded = await ipfsClient.add(metadata)
-      metadataUploadUrl.current = `https://ipfs.infura.io/ipfs/${metadataUploaded.path}`
+      let metadata = {
+        name: tokenName.current.value,
+        description: tokenDesc.current.value,
+        image: imageUploadUrl.current,
+      }
+      let metadataBlob = new Blob([JSON.stringify(metadata)], { type: 'application/json' })
+      let file = new File([metadataBlob], 'metadata.json')
+
+      let metadataCid = await storageClient.put([file], { wrapWithDirectory: false })
+      metadataUploadUrl.current = `https://ipfs.io/ipfs/${metadataCid}`
       console.log('Metadata uploaded:', metadataUploadUrl.current)
     } catch (err) {
       console.error(err.message)

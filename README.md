@@ -4,8 +4,8 @@ A platform for selling & buying 2D artworks
 - Sell your creative works as NFTs (based on ERC721 standard) and get paid in Ethers
 - Token name: Artista
 - Token symbol: ART
-- Token contract address on Rinkeby testnet: 0xD180499769A2b3b8e9E55b83D81e5CB605d2513F
-- Market contract address on Rinkeby testnet: 0xD972Ab29f1c32062B0Be330DC791a5746c40230b
+- Token contract address on Goerli testnet: 0x4003B57BB631A56f830AF3321D46f6374d8f9Ee9
+- Market contract address on Goerli testnet: 0xF40b1949CCA80B7BFeaED7F22afAF133422A8bB1
 
 ## Interacting with the web app
 Metamask extension is required for on-chain activities.

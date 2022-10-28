@@ -7,14 +7,14 @@
     "bootstrap": "^5.1.3",
     "bootstrap-icons": "^1.8.1",
     "dotenv": "^16.0.0",
-    "ipfs-http-client": "^56.0.2",
     "nsfwjs": "^2.4.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.2.3",
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.3.0",
     "react-scripts": "3.2.0",
-    "web3": "^1.6.1"
+    "web3": "^1.6.1",
+    "web3.storage": "^4.4.0"
   },
   "scripts": {
     "start": "react-scripts start",

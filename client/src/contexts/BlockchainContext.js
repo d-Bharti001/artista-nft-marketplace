@@ -13,7 +13,7 @@ const networks = {
   '5777': 'Local Ganache Network',
 }
 
-const expectedNetworkId = '4'
+const expectedNetworkId = '5'
 
 const BlockchainContext = createContext()
 
